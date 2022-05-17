@@ -1,0 +1,24 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: my-test
+  datasource:
+    url: jdbc:mysql://localhost/mycloud?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#配置rabbitMq服务
+  rabbitmq:
+    username: admin
+    password: admin
+    -host: /
+    host: 127.0.0.1
+    pvirtualort: 5672
+#mybais-plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/PaymentMapper.xml
+  type-aliases-package: com.javastroger.demo.entity

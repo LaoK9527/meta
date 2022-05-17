@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javastroger.demo.mapper.PaymentMapper">
+
+    <insert id="batchPayments" parameterType="list">
+        insert into payment(pay_serial)
+        values
+        <foreach collection="payments" item="item" index="index" separator=",">
+            (
+            #{item.paySerial}
+            )
+        </foreach>
+        ON duplicate KEY UPDATE pay_id = pay_id
+    </insert>
+
+
+</mapper>
